@@ -1,3 +1,47 @@
 body {
   margin: 0;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading div {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(.5turn)
+  }
+}
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+div {
+  transition: --num 1s;
+  counter-reset: num var(--num);
+}
+
+#fee {
+  position: fixed;
+  font-size: 10vw;
+  text-align: center;
+  width: 100%;
+}
+
+#fee span::after {
+  content: counter(num);
+}
