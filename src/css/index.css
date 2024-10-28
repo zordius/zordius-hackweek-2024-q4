@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  padding: 10vw 0 0 0;
+}
+
+body * {
+  box-sizing: border-box;
 }
 
 .loading {
@@ -24,24 +29,80 @@ body {
   }
 }
 
-@property --num {
+@property --num1 {
   syntax: '<integer>';
-  initial-value: 0;
-  inherits: false;
+  initial-value: 300;
+  inherits: true;
 }
 
-div {
-  transition: --num 1s;
-  counter-reset: num var(--num);
+@property --num2 {
+  syntax: '<integer>';
+  initial-value: 2000;
+  inherits: true;
 }
 
 #fee {
+  top: 0;
   position: fixed;
   font-size: 10vw;
   text-align: center;
   width: 100%;
 }
 
-#fee span::after {
-  content: counter(num);
+#fee span:nth-child(1)::after {
+  transition: --num1 1s;
+  counter-reset: num1 var(--num1);
+  content: counter(num1);
+}
+
+#fee span:nth-child(3)::after {
+  transition: --num2 1s;
+  counter-reset: num2 var(--num2);
+  content: counter(num2);
+}
+
+#size span {
+  display: block;
+  font-size: 10vw;
+  padding: 5vw;
+  transition: all 1s;
+  text-indent: 20vw;
+}
+
+#size span::before {
+  display: block;
+  width: 100%;
+}
+
+#size span:nth-child(1)::before {
+  content: '厚さ3cm以内';
+  background: url('./nekopos.svg') no-repeat;
+  background-size: contain;
+}
+
+#size span:nth-child(2)::before {
+  content: '厚さ7cm以内';
+  background: url('./compact.svg') no-repeat;
+  background-size: contain;
+}
+
+#size span:nth-child(3)::before {
+  content: '60~170サイズ';
+  background: url('./pack.svg') no-repeat;
+  background-size: contain;
+}
+
+.step1 #size span {
+  font-size: 8vw;
+  text-indent: 13vw;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  background: #eee;
+}
+
+.step1.size1 #size span:nth-child(1),
+.step1.size2 #size span:nth-child(2),
+.step1.size3 #size span:nth-child(3) {
+  max-height: 100vh;
 }
