@@ -160,12 +160,12 @@ body * {
 #place span::before {
   transition: all 1s;
   display: block;
-  height: 10vw;
-}
-
-.step2 #place span::before {
   width: 50vw;
   height: 50vw;
+}
+
+.step3 #place span::before {
+  height: 10vw;
 }
 
 #place span:nth-child(1)::before {

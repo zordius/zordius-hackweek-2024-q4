@@ -9,20 +9,21 @@ const setClass = () => {
   switch (step) {
     case 1:
     case 2:
+    case 3:
       switch (size) {
         case 1:
-          return setFeeWeight(160, 0, 1);
+          return setFeeWeight(160, 0, 1, 0);
         case 2:
-          return setFeeWeight(455, 0, 2);
+          return setFeeWeight(455, 0, 2, 65);
         case 3:
-          return setFeeWeight(750, 1900, 25);
+          return setFeeWeight(750, 1900, 25, 0);
       }
     default:
       setFeeWeight(160, 2000);
   }
 }
 
-const setFeeWeight = (fee1, fee2, maxWeight) => {
+const setFeeWeight = (fee1, fee2, maxWeight, pack) => {
   const fee = document.querySelectorAll('#fee span');
   const range = document.querySelector('#fee i');
   fee[0].style.setProperty('--num1', fee1);
@@ -30,6 +31,8 @@ const setFeeWeight = (fee1, fee2, maxWeight) => {
   fee[1].style.setProperty('--num2', fee2);
   fee[1].className = fee2 ? '' : 'hide';
   document.querySelector('#hint1 span').innerHTML = maxWeight;
+  document.querySelector('#hint2 span').innerHTML = pack;
+  document.querySelector('#hint2').className = pack ? '' : 'hide';
 }
 
 const initApp = () => {
@@ -47,6 +50,7 @@ const initApp = () => {
     <span></span>
   </div>
   <div id="hint1">重さが<span></span>KG以下であることを確認してください。</div>
+  <div id="hint2">専用箱は別途購入<span></span>円</div>
   `;
   document.querySelectorAll('#size span').forEach((span, i) => {
     span.addEventListener('click', () => {
@@ -66,7 +70,7 @@ const initApp = () => {
   });
   document.querySelectorAll('#place span').forEach((span, i) => {
     span.addEventListener('click', () => {
-      if (step !== 2) {
+      if (step > 2) {
         place = 0;
         step = 2;
       } else {
