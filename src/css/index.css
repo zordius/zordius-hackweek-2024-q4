@@ -56,13 +56,13 @@ body * {
 #fee span:nth-child(1)::after {
   transition: --num1 1s;
   counter-reset: num1 var(--num1);
-  content: counter(num1);
+  content: '¥' counter(num1);
 }
 
 #fee span:nth-child(3)::after {
   transition: --num2 1s;
   counter-reset: num2 var(--num2);
-  content: counter(num2);
+  content: '¥' counter(num2);
 }
 
 #size span {
