@@ -96,7 +96,8 @@ body * {
 }
 
 .step1 #size span,
-.step2 #size span {
+.step2 #size span,
+.step3 #size span {
   font-size: 8vw;
   text-indent: 13vw;
   max-height: 0;
@@ -110,7 +111,10 @@ body * {
 .step1.size3 #size span:nth-child(3),
 .step2.size1 #size span:nth-child(1),
 .step2.size2 #size span:nth-child(2),
-.step2.size3 #size span:nth-child(3) {
+.step2.size3 #size span:nth-child(3),
+.step3.size1 #size span:nth-child(1),
+.step3.size2 #size span:nth-child(2),
+.step3.size3 #size span:nth-child(3) {
   max-height: 100vh;
 }
 
@@ -121,7 +125,9 @@ body * {
   margin: 5vw;
 }
 
-.step1 #hint1 {
+.step1 #hint1,
+.step2 #hint1,
+.step3 #hint1 {
   max-height: 100vh;
   background: #ffe;
 }
@@ -140,6 +146,7 @@ body * {
   width: 50vw;
   font-size: 7vw;
   text-indent: 13vw;
+  overflow: hidden;
 }
 
 .step2 #place span {
@@ -183,4 +190,17 @@ body * {
   content: 'FamilyMart';
   background: url('./fami.png') no-repeat;
   background-size: contain;
+}
+
+.step3 #place span {
+  max-width: 0;
+  max-height: 0;
+}
+
+.step3.place1 #place span:nth-child(1),
+.step3.place2 #place span:nth-child(2),
+.step3.place3 #place span:nth-child(3),
+.step3.place4 #place span:nth-child(4) {
+  max-width: 50vw;
+  max-height: 50vw;
 }
