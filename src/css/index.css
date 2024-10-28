@@ -125,3 +125,62 @@ body * {
   max-height: 100vh;
   background: #ffe;
 }
+
+#place {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#place span {
+  display: flex;
+  transition: all 0.5s;
+  text-align: center;
+  color: #ffa;
+  text-shadow: 0 0 10px #000;
+  width: 50vw;
+  font-size: 7vw;
+  text-indent: 13vw;
+}
+
+.step2 #place span {
+  height: 50vw;
+  font-weight: 900;
+  line-height: 50vw;
+  font-size: 9vw;
+  text-indent: 0;
+}
+
+#place span::before {
+  transition: all 1s;
+  display: block;
+  height: 10vw;
+}
+
+.step2 #place span::before {
+  width: 50vw;
+  height: 50vw;
+}
+
+#place span:nth-child(1)::before {
+  content: '郵便局';
+  background: url('./post.svg') no-repeat;
+  background-size: contain;
+}
+
+#place span:nth-child(2)::before {
+  content: '7-Eleven';
+  background: url('./711.png') no-repeat;
+  background-size: contain;
+}
+
+#place span:nth-child(3)::before {
+  content: 'Lawson';
+  background: url('./lawson.png') no-repeat;
+  background-size: contain;
+}
+
+#place span:nth-child(4)::before {
+  content: 'FamilyMart';
+  background: url('./fami.png') no-repeat;
+  background-size: contain;
+}

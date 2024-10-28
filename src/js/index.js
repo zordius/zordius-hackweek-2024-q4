@@ -2,9 +2,10 @@ require('../css/index.css');
 
 var step = 0;
 var size = 0;
+var place = 0;
 
 const setClass = () => {
-  document.body.className = `step${step} size${size}`;
+  document.body.className = `step${step} size${size} place${place}`;
   switch (step) {
     case 1:
     case 2:
@@ -39,6 +40,12 @@ const initApp = () => {
     <span></span>
     <span></span>
   </div>
+  <div id="place">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <div id="hint1">重さが<span></span>KG以下であることを確認してください。</div>
   `;
   document.querySelectorAll('#size span').forEach((span, i) => {
@@ -56,6 +63,18 @@ const initApp = () => {
   document.querySelector('#hint1').addEventListener('click', () => {
     step = 2;
     setClass();
+  });
+  document.querySelectorAll('#place span').forEach((span, i) => {
+    span.addEventListener('click', () => {
+      if (step !== 2) {
+        place = 0;
+        step = 2;
+      } else {
+        place = i + 1;
+        step = 3;
+      }
+      setClass();
+    });
   });
   setClass();
 }
