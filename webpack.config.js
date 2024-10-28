@@ -8,5 +8,8 @@ module.exports = {
 		path: __dirname + '/build',
 		filename: '[name].js'
 	},
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin({
+    title: 'Select a delivery method...',
+    template: './src/html/index.html',
+  })],
 };
