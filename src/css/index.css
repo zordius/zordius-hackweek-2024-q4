@@ -7,6 +7,10 @@ body * {
   box-sizing: border-box;
 }
 
+.hide {
+  opacity: 0;
+}
+
 .loading {
   display: flex;
   justify-content: center;
