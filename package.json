@@ -2,8 +2,13 @@
   "name": "zordius-mercari-hackweek-2024q4",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "webpack serve"
+  },
   "devDependencies": {
+    "html-webpack-plugin": "^5.6.3",
     "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   }
 }
